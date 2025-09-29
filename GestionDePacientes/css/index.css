@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #4e9af1, #1e3c72);
+}
+
+.login-container {
+    text-align: center;
+}
+
+form#formLogin {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+h2 {
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+form#formLogin label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+}
+
+form#formLogin input[type="text"],
+form#formLogin input[type="password"] {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+form#formLogin input[type="text"]:focus,
+form#formLogin input[type="password"]:focus {
+    border-color: #4e9af1;
+    outline: none;
+}
+
+form#formLogin button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4e9af1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form#formLogin button:hover {
+    background-color: #3b7ac1;
+}
+
+form#formLogin .mensaje {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+}

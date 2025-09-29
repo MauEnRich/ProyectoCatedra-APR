@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Gestión de Pacientes</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <h1>Bienvenido al panel</h1>
+    
+
+    <div id="formAgregarPaciente" class="form-panel">
+      <h2>Agregar Paciente</h2>
+      <input type="text" id="nombre" placeholder="Nombre" maxlength="100" required>
+      <input type="text" id="apellido" placeholder="Apellido" maxlength="100" required>
+      <input type="number" id="edad" placeholder="Edad" min="0" max="150">
+      <label>Género:</label>
+      <select id="genero">
+        <option value="">Seleccione</option>
+        <option value="M">M</option>
+        <option value="F">F</option>
+      </select>
+      <input type="tel" id="telefono" placeholder="Teléfono" maxlength="20">
+      <input type="text" id="direccion" placeholder="Dirección" maxlength="200">
+      <button id="btnAgregar">Agregar</button>
+    </div>
+
+    <h2>Lista de Pacientes</h2>
+    <ul id="listaPacientes"></ul>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
