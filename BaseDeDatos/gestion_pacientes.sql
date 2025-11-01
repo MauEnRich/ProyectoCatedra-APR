@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-09-2025 a las 08:38:50
+-- Tiempo de generación: 01-11-2025 a las 01:44:54
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,7 +42,43 @@ CREATE TABLE `citas` (
 
 INSERT INTO `citas` (`id`, `paciente_id`, `fecha`, `hora`, `motivo`, `estado`) VALUES
 (1, 1, '2025-10-02', '10:00:00', 'Control de presión', 'pendiente'),
-(2, 2, '2025-10-03', '14:30:00', 'Consulta general', 'confirmada');
+(2, 2, '2025-10-03', '14:30:00', 'Consulta general', 'confirmada'),
+(3, 1, '2025-10-30', '07:00:00', 'Control de prueba', 'pendiente'),
+(4, 2, '2025-10-29', '09:00:00', 'Control sobre dolor de espalda', 'confirmada');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `expediente`
+--
+
+CREATE TABLE `expediente` (
+  `id_expediente` int(11) NOT NULL,
+  `id_paciente` int(11) NOT NULL,
+  `grupo_sanguineo` varchar(5) DEFAULT NULL,
+  `alergias` text DEFAULT NULL,
+  `enfermedades_cronicas` text DEFAULT NULL,
+  `medicamentos_actuales` text DEFAULT NULL,
+  `antecedentes_familiares` text DEFAULT NULL,
+  `antecedentes_personales` text DEFAULT NULL,
+  `vacunas` text DEFAULT NULL,
+  `fecha_creacion` datetime DEFAULT current_timestamp(),
+  `fecha_ultima_actualizacion` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `motivo_consulta` text DEFAULT NULL,
+  `diagnostico` text DEFAULT NULL,
+  `tratamiento` text DEFAULT NULL,
+  `medico_responsable` varchar(100) DEFAULT NULL,
+  `area_atencion` varchar(100) DEFAULT NULL,
+  `tipo_atencion` enum('Consulta externa','Emergencia','Hospitalización') DEFAULT NULL,
+  `observaciones_medicas` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `expediente`
+--
+
+INSERT INTO `expediente` (`id_expediente`, `id_paciente`, `grupo_sanguineo`, `alergias`, `enfermedades_cronicas`, `medicamentos_actuales`, `antecedentes_familiares`, `antecedentes_personales`, `vacunas`, `fecha_creacion`, `fecha_ultima_actualizacion`, `motivo_consulta`, `diagnostico`, `tratamiento`, `medico_responsable`, `area_atencion`, `tipo_atencion`, `observaciones_medicas`) VALUES
+(1, 1, 'A+', 'A las abejas', 'Ninguna', 'Ninguno', 'De tiroides', 'Ninguno', 'Todas', '2025-10-29 07:09:15', '2025-10-29 07:09:15', 'Dolor de cuerpo', 'Fiebre', 'Paracetamol', 'Yo', 'Enfermeria', 'Consulta externa', 'Ninguna');
 
 -- --------------------------------------------------------
 
@@ -88,7 +124,8 @@ CREATE TABLE `pacientes` (
 INSERT INTO `pacientes` (`id`, `nombre`, `apellido`, `edad`, `genero`, `telefono`, `direccion`) VALUES
 (1, 'Carlos', 'Pérez', 40, 'M', '7777-1111', 'San Salvador'),
 (2, 'María', 'Gómez', 30, 'F', '7777-2222', 'Santa Tecla'),
-(5, 'Elias', 'Fraco', 21, 'M', '2222-2222', 'Apopa');
+(5, 'Elias', 'Fraco', 21, 'M', '2222-2222', 'Apopa'),
+(6, 'Paola', 'Calles Arias', 23, 'F', '4567-8976', 'Mi casa');
 
 -- --------------------------------------------------------
 
@@ -146,6 +183,13 @@ ALTER TABLE `citas`
   ADD KEY `paciente_id` (`paciente_id`);
 
 --
+-- Indices de la tabla `expediente`
+--
+ALTER TABLE `expediente`
+  ADD PRIMARY KEY (`id_expediente`),
+  ADD KEY `id_paciente` (`id_paciente`);
+
+--
 -- Indices de la tabla `historial_medico`
 --
 ALTER TABLE `historial_medico`
@@ -180,7 +224,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `expediente`
+--
+ALTER TABLE `expediente`
+  MODIFY `id_expediente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `historial_medico`
@@ -192,7 +242,7 @@ ALTER TABLE `historial_medico`
 -- AUTO_INCREMENT de la tabla `pacientes`
 --
 ALTER TABLE `pacientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `recetas`
@@ -215,6 +265,12 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `citas`
   ADD CONSTRAINT `citas_ibfk_1` FOREIGN KEY (`paciente_id`) REFERENCES `pacientes` (`id`) ON DELETE CASCADE;
+
+--
+-- Filtros para la tabla `expediente`
+--
+ALTER TABLE `expediente`
+  ADD CONSTRAINT `expediente_ibfk_1` FOREIGN KEY (`id_paciente`) REFERENCES `pacientes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `historial_medico`
