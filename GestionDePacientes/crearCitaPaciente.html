@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Crear Cita</title>
+<link rel="stylesheet" href="css/crearCita.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="tab-bar">
+  <nav class="tab-nav">
+    <button onclick="location.href='dashboard.html'">
+      <i class="fas fa-users"></i> Usuarios
+    </button>
+    <button onclick="location.href='crearCitaPaciente.html'">
+      <i class="fas fa-calendar-plus"></i> Citas
+    </button>
+        <button onclick="location.href='#'">
+      <i class="fas fa-prescription-bottle-alt"></i> Recetas    
+    </button>
+    <button onclick="location.href='ingresoExpediente.html'">
+      <i class="fas fa-file-medical"></i> Expedientes
+    </button>
+        <button onclick="location.href='#'">
+      <i class="fas fa-file-medical-alt"></i> Historial Médico
+    </button>
+  </nav>
+</header>
+<div class="cita-layout">
+<form class="form-container" id="formCita">    
+    <h2>Registrar Cita Médica</h2>
+    <input type="number" id="paciente_id" placeholder="ID del Paciente" required>
+    <input type="date" id="fecha" required>
+    <input type="time" id="hora" required>
+    <input type="text" id="motivo" placeholder="Motivo de la cita" required>
+    <select id="estado">
+      <option value="">Estado</option>
+      <option value="pendiente">Pendiente</option>
+      <option value="confirmada">Confirmada</option>
+      <option value="cancelada">Cancelada</option>
+    </select>
+    <button id="btnCrearCita">Guardar Cita</button>
+  </div>
+</form>
+  <div class="tabla-citas">
+    <h2>Listado de Citas Registradas</h2>
+<table id="tablaCitas">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>ID Paciente</th>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Motivo</th>
+      <th>Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+  </div>
+    <script src="js/crearCita.js"></script>
+</body>
+</html>

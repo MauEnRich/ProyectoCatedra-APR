@@ -4,12 +4,32 @@
   <meta charset="UTF-8">
   <title>Panel de Gestión de Pacientes</title>
   <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+<header class="tab-bar">
+  <nav class="tab-nav">
+    <button onclick="location.href='dashboard.html'">
+      <i class="fas fa-users"></i> Usuarios
+    </button>
+    <button onclick="location.href='crearCitaPaciente.html'">
+      <i class="fas fa-calendar-plus"></i> Citas
+    </button>
+        <button onclick="location.href='#'">
+      <i class="fas fa-prescription-bottle-alt"></i> Recetas    
+    </button>
+    <button onclick="location.href='ingresoExpediente.html'">
+      <i class="fas fa-file-medical"></i> Expedientes
+    </button>
+        <button onclick="location.href='#'">
+      <i class="fas fa-file-medical-alt"></i> Historial Médico
+    </button>
+  </nav>
+</header>
+
+
   <div class="dashboard-container">
     <h1>Bienvenido al panel</h1>
-    
-
     <div id="formAgregarPaciente" class="form-panel">
       <h2>Agregar Paciente</h2>
       <input type="text" id="nombre" placeholder="Nombre" maxlength="100" required>
