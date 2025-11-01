@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ingreso de Expediente</title>
+<link rel="stylesheet" href="css/expediente.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="tab-bar">
+  <nav class="tab-nav">
+    <button onclick="location.href='dashboard.html'">
+      <i class="fas fa-users"></i> Usuarios
+    </button>
+    <button onclick="location.href='crearCitaPaciente.html'">
+      <i class="fas fa-calendar-plus"></i> Citas
+    </button>
+        <button onclick="location.href='#'">
+      <i class="fas fa-prescription-bottle-alt"></i> Recetas    
+    </button>
+    <button onclick="location.href='ingresoExpediente.html'">
+      <i class="fas fa-file-medical"></i> Expedientes
+    </button>
+        <button onclick="location.href='#'">
+      <i class="fas fa-file-medical-alt"></i> Historial Médico
+    </button>
+  </nav>
+</header>
+<div class="expediente-layout">
+  <form class="form-container" id="formExpediente">        
+    <h2>Ingreso de Expediente Médico</h2>
+    <input type="number" id="id_paciente" placeholder="ID del Paciente" required>
+    <input type="text" id="grupo_sanguineo" placeholder="Grupo Sanguíneo">
+    <textarea id="alergias" placeholder="Alergias"></textarea>
+    <textarea id="enfermedades_cronicas" placeholder="Enfermedades Crónicas"></textarea>
+    <textarea id="medicamentos_actuales" placeholder="Medicamentos Actuales"></textarea>
+    <textarea id="antecedentes_familiares" placeholder="Antecedentes Familiares"></textarea>
+    <textarea id="antecedentes_personales" placeholder="Antecedentes Personales"></textarea>
+    <textarea id="vacunas" placeholder="Vacunas"></textarea>
+    <textarea id="motivo_consulta" placeholder="Motivo de Consulta"></textarea>
+    <textarea id="diagnostico" placeholder="Diagnóstico"></textarea>
+    <textarea id="tratamiento" placeholder="Tratamiento"></textarea>
+    <input type="text" id="medico_responsable" placeholder="Médico Responsable">
+    <textarea id="area_atencion" placeholder="Área de Atención"></textarea>
+    <select id="tipo_atencion">
+      <option value="">Tipo de Atención</option>
+      <option value="Consulta externa">Consulta externa</option>
+      <option value="Emergencia">Emergencia</option>
+      <option value="Hospitaliz">Hospitalización</option>
+    </select>
+    <textarea id="observaciones_medicas" placeholder="Observaciones Médicas"></textarea>
+    <button id="btnGuardarExpediente">Guardar Expediente</button>
+    </form>
+  </div>
+
+  <div class="tabla-expedientes">
+    <h2>Listado de Expedientes</h2>
+    <table id="tablaExpedientes">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>ID Paciente</th>
+          <th>Grupo Sanguíneo</th>
+          <th>Motivo</th>
+          <th>Diagnóstico</th>
+          <th>Tipo Atención</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+  <script src="js/ingresoExpediente.js"></script>
+</body>
+</html>

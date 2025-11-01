@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: linear-gradient(to bottom, #4e9af1, #1e3c72);
+    padding: 50px 20px;
+}
+
+.dashboard-container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    color: #fff;
+    padding-top: 80px;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-panel {
+    background-color: #ffffff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.form-panel label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-panel input[type="text"],
+.form-panel input[type="number"],
+.form-panel input[type="tel"],
+.form-panel select {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+.form-panel input:focus,
+.form-panel select:focus {
+    border-color: #4e9af1;
+    outline: none;
+}
+
+.form-panel button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4e9af1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-panel button:hover {
+    background-color: #3b7ac1;
+}
+
+#listaPacientes {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+#listaPacientes li {
+    background-color: #ffffff;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.tab-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to right, #61959c, #2196f3);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.tab-nav {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 15px 0;
+}
+
+.tab-nav button {
+  background-color: rgba(255, 255, 255, 0.247);
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab-nav button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.tab-nav i {
+  font-size: 18px;
+}
+
+
+
