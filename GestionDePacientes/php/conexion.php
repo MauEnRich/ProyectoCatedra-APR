@@ -3,9 +3,10 @@ $host = "localhost";
 $usuario = "root";
 $clave = ""; 
 $bd = "gestion_pacientes";
+$port = 3307;
 
 
-$conexion = new mysqli($host, $usuario, $clave, $bd);
+$conexion = new mysqli($host, $usuario, $clave, $bd, $port);
 
 // Verificar conexión
 if ($conexion->connect_error) {

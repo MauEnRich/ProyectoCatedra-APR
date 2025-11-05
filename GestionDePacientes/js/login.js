@@ -4,7 +4,7 @@ document.getElementById("formLogin").addEventListener("submit", async (e) => {
   const usuario = document.getElementById("usuario").value.trim();
   const password = document.getElementById("password").value.trim();
 
- 
+
   const respuesta = await fetch("php/login.php", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -18,7 +18,7 @@ document.getElementById("formLogin").addEventListener("submit", async (e) => {
     localStorage.setItem("rol", data.rol);
     localStorage.setItem("usuario", usuario);
 
-   
+  
     window.location.href = "dashboard.html";
   } else {
     alert("❌ Usuario o contraseña incorrectos");
