@@ -6,15 +6,30 @@
   <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-  <div class="login-container">
-    <h2>Iniciar Sesión</h2>
-    <form id="formLogin">
-      <label>Usuario:</label>
-      <input type="text" id="usuario" required>
-      <label>Contraseña:</label>
-      <input type="password" id="password" required>
-      <button type="submit">Entrar</button>
-    </form>
+  
+  <div class="split-login-wrapper">
+    <div class="welcome-panel">
+        <div class="logo-placeholder">
+        </div>
+        <h1>Bienvenido, Clinisof!</h1>
+        <p>Sistema de gestión de citas médicas profesional y seguro.</p>
+    </div>
+    
+    <div class="login-panel">
+        <h2 class="form-title">Iniciar Sesión</h2>
+        
+        <form id="formLogin">
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" name="usuario" placeholder="Ingrese su usuario" required>
+
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
+
+            <button type="submit">Entrar</button>
+
+            <p class="mensaje"></p>
+        </form>
+    </div>
   </div>
 
   <script src="js/login.js"></script>

@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -10,72 +10,174 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom, #4e9af1, #1e3c72);
+    background: linear-gradient(135deg, #707070 0%, #99cfff 100%);
+    overflow: hidden; 
 }
 
-.login-container {
+.split-login-wrapper {
+    display: flex;
+    width: 85%; 
+    max-width: 1000px;
+    height: 600px;
+    border-radius: 25px;
+    box-shadow: 0 25px 50px rgba(243, 82, 14, 0.3);
+    overflow: hidden; 
+}
+
+.welcome-panel {
+    flex: 1; 
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    background: linear-gradient(135deg, #0056b3 0%, #007bff 100%);
+    position: relative;
+    z-index: 1;
+}
+
+.welcome-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.logo-placeholder {
+    margin-bottom: 20px;
+}
+
+.logo-placeholder img {
+    height: 30px;
+    width: auto;
+    display: block;
+}
+
+.welcome-panel h1 {
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.welcome-panel p {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.login-panel {
+    flex: 1; 
+    background-color: #ffffff;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-title {
+    color: #007bff;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-transform: none;
+    letter-spacing: normal;
     text-align: center;
 }
 
 form#formLogin {
-    background-color: #ffffff;
-    padding: 40px 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    background-color: transparent; 
+    padding: 0; 
+    box-shadow: none; 
     width: 100%;
-    max-width: 400px;
-    margin-top: 20px;
-}
-
-h2 {
-    color: #fff;
-    font-size: 28px;
-    font-weight: bold;
+    max-width: 100%;
+    border: none;
 }
 
 form#formLogin label {
-    display: block;
+    display: block; 
     text-align: left;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     font-weight: 600;
-    color: #333;
+    color: #495057; 
+    font-size: 14px;
 }
 
 form#formLogin input[type="text"],
 form#formLogin input[type="password"] {
     width: 100%;
-    padding: 10px 15px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    padding: 12px 15px;
+    margin-bottom: 25px; 
+    border-radius: 8px; 
+    background-color: #f0f4f8;
+    border: 1px solid #e9ecef;
     font-size: 16px;
-    transition: border 0.3s;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 form#formLogin input[type="text"]:focus,
 form#formLogin input[type="password"]:focus {
-    border-color: #4e9af1;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1); 
     outline: none;
 }
 
 form#formLogin button {
     width: 100%;
-    padding: 12px;
-    background-color: #4e9af1;
+    padding: 15px;
+    background-color: #007bff; 
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
+    margin-top: 30px; 
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s;
 }
 
 form#formLogin button:hover {
-    background-color: #3b7ac1;
+    background-color: #0056b3;
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+}
+
+form#formLogin button:active {
+    transform: translateY(1px); 
 }
 
 form#formLogin .mensaje {
-    color: red;
-    margin-top: 10px;
-    font-size: 14px;
+    color: #dc3545; 
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.signup-button {
+    width: 100%;
+    padding: 15px;
+    background-color: transparent;
+    border: 2px solid #007bff;
+    color: #007bff;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.signup-button:hover {
+    background-color: #007bff;
+    color: white;
 }
